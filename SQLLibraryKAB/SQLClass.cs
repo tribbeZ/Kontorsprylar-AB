@@ -429,6 +429,12 @@ namespace SQLLibraryKAB
             return rowsAffected > 0;
         }
 
+        /// <summary>
+        /// What the hell is this?
+        /// </summary>
+        /// <param name="paramaterName"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         private static SqlParameter CreateIntParameter(string paramaterName, int value)
         {
             SqlParameter param = new SqlParameter();

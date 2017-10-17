@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KontorsprylarAB", "KontorsprylarAB\KontorsprylarAB.csproj", "{6F10FB3E-DB7D-420B-85D7-9E11CD2F5B72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLLibraryKAB", "SQLLibraryKAB\SQLLibraryKAB.csproj", "{2CBF5AB9-8C16-491B-A621-CFCB97556454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{CD850515-654C-469F-93FD-69A10979AE61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUnit", "TestUnit\TestUnit.csproj", "{97BE3012-51DD-4E29-A488-37A386F80032}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{2CBF5AB9-8C16-491B-A621-CFCB97556454}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CBF5AB9-8C16-491B-A621-CFCB97556454}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CBF5AB9-8C16-491B-A621-CFCB97556454}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD850515-654C-469F-93FD-69A10979AE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD850515-654C-469F-93FD-69A10979AE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD850515-654C-469F-93FD-69A10979AE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD850515-654C-469F-93FD-69A10979AE61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97BE3012-51DD-4E29-A488-37A386F80032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97BE3012-51DD-4E29-A488-37A386F80032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97BE3012-51DD-4E29-A488-37A386F80032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97BE3012-51DD-4E29-A488-37A386F80032}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

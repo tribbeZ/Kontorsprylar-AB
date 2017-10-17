@@ -6,120 +6,317 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace SQLLibraryKAB
 {
     public static class SQLClass
     {
-        static string connString = @"Data Source=ACADEMY-72511C2;Initial Catalog=KAB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        static string connString = "Data Source=.;Initial Catalog=KAB;Integrated Security=True";
         static SqlConnection sqlConnection = new SqlConnection(connString);
 
-        public static List<Customer> ReadAllCustomers()
+        /// <summary>
+        /// Create customer
+        /// </summary>
+        /// <param name="firstname"></param>
+        /// <param name="lastname"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="email"></param>
+        public static void AddCustomer(string firstname, string lastname, string username, string password, string email)
         {
-            List<Customer> customers = new List<Customer>();
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = "Select * from Customer";
-            sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.Connection = sqlConnection;
 
             try
             {
+                // öppna strömmen
                 sqlConnection.Open();
-                SqlDataReader reader = sqlCommand.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    Customer customer = new Customer();
-                    customer.CustomerID = (int)reader["ID"];
-                    customer.Firstname = (string)reader["Firstname"];
-                    customer.Lastname = (string)reader["Lastname"];
-                    customer.Email = (string)reader["Email"];
-                    customer.Usename = (string)reader["Username"];
-                    customer.Password = (string)reader["Password"];
+                // skapa sql-kommando
+                SqlCommand mySQLCommand = new SqlCommand("AddCustomer", sqlConnection);
 
-                    customers.Add(customer);
-                }
+                // säg att det är en stored procedure
+                mySQLCommand.CommandType = CommandType.StoredProcedure;
+
+                // skapa parametrar
+                SqlParameter paramFirstname = new SqlParameter("@firstname", SqlDbType.VarChar);
+                paramFirstname.Value = firstname;
+
+                SqlParameter paramLastname = new SqlParameter("@lastname", SqlDbType.VarChar);
+                paramLastname.Value = lastname;
+
+                SqlParameter paramUsername = new SqlParameter("@username", SqlDbType.VarChar);
+                paramUsername.Value = username;
+
+                SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.VarChar);
+                paramPassword.Value = password;
+
+                SqlParameter paramEmail = new SqlParameter("@email", SqlDbType.VarChar);
+                paramEmail.Value = email;
+
+                SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.Int);
+                paramCID.Direction = ParameterDirection.Output;
+
+                // lägg till parametrar
+                mySQLCommand.Parameters.Add(paramFirstname);
+                mySQLCommand.Parameters.Add(paramLastname);
+                mySQLCommand.Parameters.Add(paramUsername);
+                mySQLCommand.Parameters.Add(paramPassword);
+                mySQLCommand.Parameters.Add(paramEmail);
+                mySQLCommand.Parameters.Add(paramCID);
+
+
+
+                mySQLCommand.ExecuteNonQuery();
+
+
             }
-            catch
+            catch (Exception e)
             {
-                customers = null;
+                throw e;
             }
             finally
             {
                 sqlConnection.Close();
             }
-            return customers;
+
+
         }
 
-        public static List<Product> ReadAllProducts()
+        /// <summary>
+        /// Add product
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="price"></param>
+        public static void AddProduct(string name, string price)
         {
-            List<Product> products = new List<Product>();
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = "Select * from Product";
-            sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.Connection = sqlConnection;
+            try
+            {
+                sqlConnection.Open();
+
+                // skapa sql-kommando
+                SqlCommand mySQLCommand = new SqlCommand("CreateProducts", sqlConnection);
+
+                // säg att det är en stored procedure
+                mySQLCommand.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter paramName = new SqlParameter("@name", SqlDbType.VarChar);
+                paramName.Value = name;
+
+                SqlParameter paramPrice = new SqlParameter("@price", SqlDbType.VarChar);
+                paramPrice.Value = price;
+
+                SqlParameter paramPID = new SqlParameter("@pid", SqlDbType.Int);
+                paramPID.Direction = ParameterDirection.Output;
+
+                mySQLCommand.Parameters.Add(paramName);
+                mySQLCommand.Parameters.Add(paramPrice);
+                mySQLCommand.Parameters.Add(paramPID);
+
+                mySQLCommand.ExecuteNonQuery();
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        /// <summary>
+        /// Update customer password
+        /// </summary>
+        /// <param name="cid"></param>
+        /// <param name="password"></param>
+        public static void UpdateCustomer(int cid, string password)
+        {
 
             try
             {
                 sqlConnection.Open();
-                SqlDataReader reader = sqlCommand.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    Product product = new Product();
-                    product.ProductID = (int)reader["ID"];
-                    product.ProductName = (string)reader["Name"];
-                    product.ProductPrice = (string)reader["Price"];
+                SqlCommand sqlCommand = new SqlCommand("UpdateCustomer", sqlConnection);
 
-                    products.Add(product);
-                }
+                sqlCommand.CommandType = CommandType.StoredProcedure; //vår commandtype är en stored procedure
+
+                SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.Int);
+                paramCID.Value = cid;
+
+                SqlParameter paramPass = new SqlParameter("@password", SqlDbType.VarChar);
+                paramPass.Value = password;
+
+                sqlCommand.Parameters.Add(paramCID);
+                sqlCommand.Parameters.Add(paramPass);
+
+                sqlCommand.ExecuteNonQuery();
+
             }
-            catch
+            catch (Exception ex)
             {
-                products = null;
+
+                throw ex;
             }
             finally
             {
                 sqlConnection.Close();
             }
-            return products;
+
+
         }
 
-        public static bool DeleteCustomer(int cid)
+        /// <summary>
+        /// Add to stock
+        /// </summary>
+        /// <param name="numberOfProducts"></param>
+        /// <param name="pid"></param>
+        public static void AddStockEntry(int numberOfProducts, int pid)
         {
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = "DeleteCustomer";
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Connection = sqlConnection;
-
-            SqlParameter idParam = CreateIntParameter("@cid", cid);
-            sqlCommand.Parameters.Add(idParam);
-            int rowsAffected;
-
             try
             {
                 sqlConnection.Open();
-                rowsAffected = sqlCommand.ExecuteNonQuery();
+
+                SqlCommand sqlCommand = new SqlCommand("CreateStockEntry", sqlConnection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter paramSID = new SqlParameter("@sid", SqlDbType.Int);
+                paramSID.Direction = ParameterDirection.Output;
+
+                SqlParameter paramPID = new SqlParameter("@pid", SqlDbType.Int);
+                paramPID.Value = pid;
+
+                SqlParameter paramNOP = new SqlParameter("@numberofproducts", SqlDbType.Int);
+                paramNOP.Value = numberOfProducts;
+
+                sqlCommand.Parameters.Add(paramSID);
+                sqlCommand.Parameters.Add(paramPID);
+                sqlCommand.Parameters.Add(paramNOP);
+
+                sqlCommand.ExecuteNonQuery();
             }
-            catch
+            catch (Exception e)
             {
-                rowsAffected = -1;
+                throw e;
             }
             finally
             {
                 sqlConnection.Close();
             }
-            return rowsAffected > 0;
         }
 
-        private static SqlParameter CreateIntParameter(string paramaterName, int value)
+        /// <summary>
+        /// Update product
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <param name="name"></param>
+        /// <param name="price"></param>
+        public static void UpdateProduct(int pid, string name, string price)
         {
-            SqlParameter param = new SqlParameter();
-            param.Direction = ParameterDirection.Input;
-            param.ParameterName = paramaterName;
-            param.SqlDbType = SqlDbType.Int;
-            param.Value = value;
 
-            return param;
+            try
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("UpdateProduct", sqlConnection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter paramPID = new SqlParameter("@pid", SqlDbType.Int);
+                paramPID.Value = pid;
+
+                SqlParameter paramName = new SqlParameter("@name", SqlDbType.VarChar);
+                paramName.Value = name;
+
+                SqlParameter paramPrice = new SqlParameter("@price", SqlDbType.VarChar);
+                paramPrice.Value = price;
+
+                sqlCommand.Parameters.Add(paramPID);
+                sqlCommand.Parameters.Add(paramName);
+                sqlCommand.Parameters.Add(paramPrice);
+
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
         }
+
+        /// <summary>
+        /// Updating stock
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="numberofproducts"></param>
+        public static void UpdateStock(int sid, int numberofproducts)
+        {
+
+            try
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("UpdateStock", sqlConnection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter paramSID = new SqlParameter("@sid", SqlDbType.Int);
+                paramSID.Value = sid;
+
+                SqlParameter paramNRofProducts = new SqlParameter("@numberofproducts", SqlDbType.Int);
+                paramNRofProducts.Value = numberofproducts;
+
+                sqlCommand.Parameters.Add(paramSID);
+                sqlCommand.Parameters.Add(paramNRofProducts);
+
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+
+
+        }
+
+        /// <summary>
+        /// Delete contact by contact id
+        /// </summary>
+        /// <param name="pid"></param>
+        public static void DeleteProduct(int pid)
+        {
+
+            try
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("DeleteProduct", sqlConnection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter paramPID = new SqlParameter("@pid", SqlDbType.Int);
+                paramPID.Value = pid;
+
+                sqlCommand.Parameters.Add(paramPID);
+
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+
+
+        }
+
     }
 }

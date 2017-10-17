@@ -9,7 +9,7 @@ namespace SQLLibraryKAB
     public class Product
     {
         public int ProductID { get; set; }
-        public int ProductPrice { get; set; }
+        public string ProductPrice { get; set; }
         public string ProductName { get; set; }
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KontorsprylarAB", "Kontorsp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLLibraryKAB", "SQLLibraryKAB\SQLLibraryKAB.csproj", "{2CBF5AB9-8C16-491B-A621-CFCB97556454}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{CD850515-654C-469F-93FD-69A10979AE61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2CBF5AB9-8C16-491B-A621-CFCB97556454}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CBF5AB9-8C16-491B-A621-CFCB97556454}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CBF5AB9-8C16-491B-A621-CFCB97556454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD850515-654C-469F-93FD-69A10979AE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD850515-654C-469F-93FD-69A10979AE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD850515-654C-469F-93FD-69A10979AE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD850515-654C-469F-93FD-69A10979AE61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

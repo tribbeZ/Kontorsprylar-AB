@@ -30,6 +30,8 @@ namespace KontorsprylarAB
                 {
                     SQLClass.AddCustomer(firstName, lastName, email, username, password);
 
+                    Response.Redirect ("/accountConfirmation.aspx");
+
                 }
                 catch (Exception ex)
                 {

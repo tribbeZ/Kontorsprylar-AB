@@ -85,6 +85,7 @@
     <Content Include="paper.aspx" />
     <Content Include="checkout.aspx" />
     <Content Include="Pictures\paperpicture.png" />
+    <Content Include="Pictures\shoppingcart.png" />
     <Content Include="purchaseConfirmation.aspx" />
     <Content Include="stock.aspx" />
     <Content Include="createAccount.aspx" />

@@ -21,7 +21,8 @@ namespace KontorsprylarAB
 
                 foreach (var item in stock)
                 {
-                    stockTableContent += $"<tr><td>{item.StockID}</td><td>{item.ProductID}</td><td>{item.StockQuantity}</td></tr>";
+                    stockTableContent += $"<tr><td>{item.StockID}</td><td>{item.ProductID}</td><td>{item.StockQuantity}</td>" +
+                        $"</tr>";
                     //$ lägger på ToString() på variabler som skrivs mellan måsvingar. 
                 }
 

@@ -11,7 +11,12 @@ namespace TestUnit
     {
         static void Main(string[] args)
         {
-            SQLClass.DeleteProduct(2);
+            List<Product> customer = SQLClass.ReadAllProducts();
+
+            foreach (var c in customer)
+            {
+                Console.WriteLine(c.ProductName);
+            }
 
 
 

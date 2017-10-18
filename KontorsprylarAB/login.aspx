@@ -5,8 +5,10 @@
     <asp:Label ID="Label1" runat="server" Text="LOGIN"></asp:Label>
     <br /><br />
     <input id="username" placeholder="Username" type="text" style="text-align:center"/>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidatorLogin" runat="server" EnableClientScript="False" ErrorMessage="Input username" ForeColor="Red"></asp:RequiredFieldValidator>
     <br /><br />
     <input id="password" placeholder="Password "type="password" style="text-align:center" />
+    <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" ErrorMessage="Input password"></asp:RequiredFieldValidator>
     <br /><br />
     <input id="ButtonLogin" type="button" value="Login" />
 </asp:Content>

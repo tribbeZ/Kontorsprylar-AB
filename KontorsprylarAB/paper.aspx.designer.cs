@@ -31,6 +31,24 @@ namespace KontorsprylarAB {
         protected global::System.Web.UI.WebControls.RadioButtonList PaperQuantity;
         
         /// <summary>
+        /// RequiredFieldValidatorPaperFormat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPaperFormat;
+        
+        /// <summary>
+        /// RequiredFieldValidatorQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorQuantity;
+        
+        /// <summary>
         /// ButtonAddToCart control.
         /// </summary>
         /// <remarks>

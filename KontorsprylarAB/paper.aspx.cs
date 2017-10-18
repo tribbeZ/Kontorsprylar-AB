@@ -18,10 +18,10 @@ namespace KontorsprylarAB
         {
             if (IsValid)
             {
-                string format = PaperFormat.SelectedValue;
+                
                 string quantity = PaperQuantity.SelectedValue;
 
-                Response.Redirect($"/checkout.aspx?format={format}&quantity={quantity}");
+                Response.Redirect($"/checkout.aspx?quantity={quantity}");
             }
         }
     }

@@ -11,7 +11,7 @@ namespace SQLLibraryKAB
 {
     public static class SQLClass
     {
-        static string connString = "Data Source=.;Initial Catalog=KAB;Integrated Security=True";
+        static string connString = "Data Source=.;Initial Catalog=HOLLAND;Integrated Security=True";
         static SqlConnection sqlConnection = new SqlConnection(connString);
 
         /// <summary>
@@ -395,6 +395,41 @@ namespace SQLLibraryKAB
                 sqlConnection.Close();
             }
             return products;
+        }
+
+
+        public static List<Stock> ReadStockContent()
+        {
+            List<Stock> stockContent = new List<Stock>();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = "Select * from Stock";
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.Connection = sqlConnection;
+
+            try
+            {
+                sqlConnection.Open();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Stock stockItem = new Stock();
+                    stockItem.StockID = (int)reader["ID"];
+                    stockItem.ProductID = (int)reader["ProductID"];
+                    stockItem.StockQuantity = (int)reader["NumberOfProducts"];
+
+                    stockContent.Add(stockItem);
+                }
+            }
+            catch
+            {
+                stockContent = null;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return stockContent;
         }
 
         /// <summary>

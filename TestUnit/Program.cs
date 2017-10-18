@@ -12,8 +12,8 @@ namespace TestUnit
         static void Main(string[] args)
         {
             SQLClass.AddCustomer("Göran", "Persson", "TheGP", "coolguy", "GP@JKL.se");
-            
 
+            
 
 
 

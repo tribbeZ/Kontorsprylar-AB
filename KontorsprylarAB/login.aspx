@@ -8,7 +8,7 @@
     &nbsp;<asp:TextBox ID="textBoxUsername" runat="server"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidatorLogin" runat="server" ControlToValidate="textBoxUsername" EnableClientScript="False" ErrorMessage="Please enter username" ForeColor="Red"></asp:RequiredFieldValidator>
     <br /><br />
-    &nbsp;<asp:TextBox ID="textBoxPassword" runat="server"></asp:TextBox>
+    &nbsp;<asp:TextBox ID="textBoxPassword" runat="server" TextMode="Password"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidatorPassword" runat="server" ControlToValidate="textBoxPassword" EnableClientScript="False" ErrorMessage="Please enter password" ForeColor="Red"></asp:RequiredFieldValidator>
     <br />
     <asp:Button ID="buttonLogin" runat="server" Text="OK" OnClick="buttonLogin_Click" />

@@ -19,7 +19,8 @@
                 <td>200</td>
             </tr>
            <tr>
-               <td></td>
+               <td>
+                   <asp:Button ID="Button2" runat="server" Text="Button" /></td>
                <td>
                    <input id="Button1" type="button" value="Checkout!" /></td>
            </tr>

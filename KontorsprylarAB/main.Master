@@ -8,6 +8,7 @@
 
     <script src="Scripts/jquery-3.2.1.js"></script>
     <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/sexyJava.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/sexyCSS.css" rel="stylesheet" />
 
@@ -26,6 +27,10 @@
                 <li><a href="login.aspx">Login</a></li>
                 <li><a href="createAccount.aspx">Create account</a></li>               
             </ul>
+            <ul class="nav navbar-right">
+                 <li><a href="stock.aspx">Stock</a></li>
+            </ul>          
+      
         </div>
     </nav>
 

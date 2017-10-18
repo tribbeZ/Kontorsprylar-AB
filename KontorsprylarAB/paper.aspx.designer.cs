@@ -13,58 +13,22 @@ namespace KontorsprylarAB {
     public partial class WebForm2 {
         
         /// <summary>
-        /// RadioButtonA3 control.
+        /// PaperFormat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButtonA3;
+        protected global::System.Web.UI.WebControls.RadioButtonList PaperFormat;
         
         /// <summary>
-        /// RadioButtonQuantity100 control.
+        /// PaperQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButtonQuantity100;
-        
-        /// <summary>
-        /// RadioButtonA4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButtonA4;
-        
-        /// <summary>
-        /// RadioButtonQuantity200 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButtonQuantity200;
-        
-        /// <summary>
-        /// RadioButtonA5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButtonA5;
-        
-        /// <summary>
-        /// RadioButtonQuantity300 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButtonQuantity300;
+        protected global::System.Web.UI.WebControls.RadioButtonList PaperQuantity;
         
         /// <summary>
         /// ButtonAddToCart control.

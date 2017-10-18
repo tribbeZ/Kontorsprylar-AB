@@ -4,15 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="LabelCreateAccount" runat="server" Text="CREATE ACCOUNT"></asp:Label>
     <br /><br />
-    <input id="textFirstname" placeholder="Firstname" type="text" style="text-align:center"/>
+    <asp:TextBox ID="TextBoxFirstname"  placeholder="Firstname" runat="server" style="text-align:center"></asp:TextBox>
     <br /><br />
-    <input id="textLastname" placeholder="Lastname" type="text" style="text-align:center"/>
+    <asp:TextBox ID="TextBoxLastname"  placeholder="Lastname" runat="server" style="text-align:center"></asp:TextBox>
     <br /><br />
-    <input id="textEmail" placeholder="E-mail" type="text" style="text-align:center"/>
+    <asp:TextBox ID="TextBoxEmail"  placeholder="E-mail" runat="server" style="text-align:center"></asp:TextBox>
     <br /><br />
-    <input id="textUsername" placeholder="Username" type="text" style="text-align:center"/>
+    <asp:TextBox ID="TextBoxUsername"  placeholder="Username" runat="server" style="text-align:center"></asp:TextBox>
     <br /><br />
-    <input id="passwordCreateAccount" placeholder="Password" type="password" style="text-align:center" />
+    <asp:TextBox ID="TextBoxPassword"  placeholder="Password" runat="server" style="text-align:center"></asp:TextBox>
     <br /><br />
-    <input id="buttonRegister" type="button" value="Register" />
+    <asp:Button ID="ButtonRegistration" runat="server" Text="Register" />
+    
 </asp:Content>

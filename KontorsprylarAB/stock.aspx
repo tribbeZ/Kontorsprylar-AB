@@ -27,9 +27,11 @@
             </thead>
         <tr>
             <td>
-                <asp:TextBox ID="TextBoxStockID" runat="server"></asp:TextBox>&nbsp;</td>
+                <asp:TextBox ID="TextBoxStockID" runat="server"></asp:TextBox>&nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBoxStockID" EnableClientScript="False" ErrorMessage="Please provide Stock ID" ForeColor="Red"></asp:RegularExpressionValidator>
+            </td>
             <td>
-                <asp:TextBox ID="TextBoxQuantity" runat="server"></asp:TextBox>&nbsp;</td>
+                <asp:TextBox ID="TextBoxQuantity" runat="server"></asp:TextBox>&nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBoxQuantity" EnableClientScript="False" ErrorMessage="Please provide quantity" ForeColor="Red"></asp:RegularExpressionValidator>
+            </td>
             <td>
                 <asp:Button ID="ButtonUpdateStock" runat="server" Text="Update Stock" OnClick="ButtonUpdateStock_Click" />&nbsp;</td>
         </tr>

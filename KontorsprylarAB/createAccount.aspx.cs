@@ -35,7 +35,7 @@ namespace KontorsprylarAB
                 }
                 catch (Exception ex)
                 {
-                    
+                    throw ex;
                 }
             }
 

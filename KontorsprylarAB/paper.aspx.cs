@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SQLLibraryKAB;
 
 namespace KontorsprylarAB
 {
@@ -19,9 +20,38 @@ namespace KontorsprylarAB
             if (IsValid)
             {
                 
-                string quantity = PaperQuantity.SelectedValue;
+                string price = PaperQuantity.SelectedValue;
 
-                Response.Redirect($"/checkout.aspx?quantity={quantity}");
+                Cart cartToSend = new Cart();
+
+
+
+                switch (price)
+                {
+                    case "100":
+                        Product p = new Product();
+                        p.ProductName = "A3 100 - pack";
+                        cartToSend.productList.Add(p);
+                        break;
+
+                    case "200":
+                        Product d = new Product();
+                        d.ProductName = "A4 100 - pack";
+                        cartToSend.productList.Add(d);
+                        break;
+                        
+                    case "300":
+                        Product f = new Product();
+                        f.ProductName = "A5 100 - pack";
+                        cartToSend.productList.Add(f);
+                        break;
+                        
+                    default:
+                        break;
+                }
+
+
+                Session["cartToSend"] = cartToSend;
             }
         }
     }

@@ -11,7 +11,6 @@
     float: left;
     background-color: #111;
     overflow-x: hidden;
-    padding-top: 0px;
 }
 
     .sidenav a {
@@ -26,6 +25,10 @@
             color: #f1f1f1;
         }
 
+.navbar-header {
+    color: #818181;
+}
+
 .main {
     margin-left: 200px; /* Same as the width of the sidenav */
 }
@@ -37,4 +40,10 @@
     position:relative;
     float:left;
     padding-left:205px;
+}
+
+.cart{
+    background-color:blue;
+    width:200px;
+    height:50px;
 }

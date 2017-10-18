@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     Congratulations (Sessions.name), you just created your account!<br />
-&nbsp;<input id="knappStartShopping" type="button" value="Start shopping" />
+&nbsp;<asp:Button ID="ButtonStartShopping" runat="server" Text="Start shopping!" />
+&nbsp;
 
 </asp:Content>

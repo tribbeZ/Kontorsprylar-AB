@@ -27,29 +27,32 @@
     <table style="width: 100%;">
         <tr>
             <td class="auto-style2">
-                <asp:RadioButton ID="RadioButtonA3" Text="  A3" runat="server" />
-            </td>
+                &nbsp;</td>
             <td class="auto-style3">
-                <asp:RadioButton ID="RadioButtonQuantity100" Text="100-pack" runat="server" />
-            </td>
+                &nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style2">
-                <asp:RadioButton ID="RadioButtonA4" Text="A4" runat="server" />
+                <asp:RadioButtonList runat="server" ID="PaperFormat" RepeatDirection="Vertical"  RepeatLayout="Flow">
+                <asp:ListItem Text="A3 (3 kr per ark)" Value="A3"></asp:ListItem>
+                <asp:ListItem Text="A4 (2 kr per ark)" Value="A4"></asp:ListItem>
+                <asp:ListItem Text="A5 (1 kr per ark)" Value="A5"></asp:ListItem>
+                </asp:RadioButtonList>
             </td>
             <td class="auto-style3">
-                <asp:RadioButton ID="RadioButtonQuantity200" Text="200-pack" runat="server" />
-            </td>
+                <asp:RadioButtonList runat="server" ID="PaperQuantity" RepeatDirection="Vertical"  RepeatLayout="Flow">
+                <asp:ListItem Text="100-pack" Value="Quantity100"></asp:ListItem>
+                <asp:ListItem Text="200-pack" Value="Quantity200"></asp:ListItem>
+                <asp:ListItem Text="300-pack" Value="Quantity300"></asp:ListItem>
+                </asp:RadioButtonList></td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style2">
-                <asp:RadioButton ID="RadioButtonA5" Text="A5" runat="server" />
-            </td>
+                &nbsp;</td>
             <td class="auto-style3">
-                <asp:RadioButton ID="RadioButtonQuantity300" Text="300-pack" runat="server" />
-            </td>
+                &nbsp;</td>
             <td>&nbsp;</td>
         </tr>
     </table>
@@ -58,11 +61,13 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td>
+    
+    <asp:Button ID="ButtonAddToCart" runat="server" Text="Add to cart" />
+            </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
     </table>
     
-    <asp:Button ID="ButtonAddToCart" runat="server" Text="Add to cart" />
-</asp:Content>
+    </asp:Content>

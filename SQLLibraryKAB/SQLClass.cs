@@ -342,7 +342,7 @@ namespace SQLLibraryKAB
                     customer.Firstname = (string)reader["Firstname"];
                     customer.Lastname = (string)reader["Lastname"];
                     customer.Email = (string)reader["Email"];
-                    customer.Usename = (string)reader["Username"];
+                    customer.Username = (string)reader["Username"];
                     customer.Password = (string)reader["Password"];
 
                     customers.Add(customer);

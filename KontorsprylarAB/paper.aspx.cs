@@ -13,5 +13,16 @@ namespace KontorsprylarAB
         {
 
         }
+
+        protected void ButtonAddToCart_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                string format = PaperFormat.SelectedValue;
+                string quantity = PaperQuantity.SelectedValue;
+
+                Response.Redirect($"/checkout.aspx?format={format}&quantity={quantity}");
+            }
+        }
     }
 }

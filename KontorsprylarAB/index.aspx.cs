@@ -12,6 +12,7 @@ namespace KontorsprylarAB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if(Request["action"]!=null)
             {
                 int cid = int.Parse(Request["cid"]);
@@ -27,6 +28,7 @@ namespace KontorsprylarAB
                 string name = userQuery.FirstOrDefault();
 
                 labelUser.Text = name;
+               
             }
         }        
 

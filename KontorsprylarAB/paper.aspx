@@ -73,9 +73,9 @@
             </td>
             <td class="auto-style9">
                 <asp:RadioButtonList runat="server" ID="PaperQuantity" RepeatDirection="Vertical"  RepeatLayout="Flow">
-                <asp:ListItem Text="100-pack" Value="Quantity100"></asp:ListItem>
-                <asp:ListItem Text="200-pack" Value="Quantity200"></asp:ListItem>
-                <asp:ListItem Text="300-pack" Value="Quantity300"></asp:ListItem>
+                <asp:ListItem Text="100-pack" Value="100"></asp:ListItem>
+                <asp:ListItem Text="200-pack" Value="200"></asp:ListItem>
+                <asp:ListItem Text="300-pack" Value="300"></asp:ListItem>
                 </asp:RadioButtonList></td>
             
             <td class="auto-style10"></td>
@@ -96,7 +96,7 @@
         <tr>
             <td>
     
-    <asp:Button ID="ButtonAddToCart" runat="server" Text="Add to cart" />
+    <asp:Button ID="ButtonAddToCart" runat="server" Text="Add to cart" OnClick="ButtonAddToCart_Click" />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

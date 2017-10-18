@@ -8,5 +8,5 @@
     <br /><br />
     <input id="password" placeholder="Password "type="password" style="text-align:center" />
     <br /><br />
-    <asp:Button ID="login" runat="server" Text="Login" />
+    <input id="ButtonLogin" type="button" value="Login" />
 </asp:Content>

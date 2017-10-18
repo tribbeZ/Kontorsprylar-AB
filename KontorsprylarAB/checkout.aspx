@@ -9,7 +9,6 @@
             <tr>
                 <th>Product</th>
                 <th>Price</th>
-                <th>Quantity</th>
             </tr>
         </thead>
         <tbody>

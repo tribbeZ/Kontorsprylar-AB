@@ -25,27 +25,28 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="login.aspx">Login</a></li>
-                <li><a href="createAccount.aspx">Create account</a></li>               
+                <li><a href="createAccount.aspx">Create account</a></li>
             </ul>
+
             <ul class="nav navbar-right">
-                 <li><a href="stock.aspx">Stock</a></li>
-                 
-            </ul>          
-      
+                <li><a href="checkout.aspx">Cart</a></li>
+                <li><a href="stock.aspx">Stock</a></li>
+            </ul>
+
         </div>
     </nav>
 
 
-    
+
     <div class="sidenav">
-        <h3>Office supplies</h3>
+        <h3 class="navbar-header">Office supplies</h3>
 
         <a href="paper.aspx">Papers</a>
         <a href="#">Scissors</a>
-        <a href="#">Rocks</a>    
+        <a href="#">Rocks</a>
     </div>
 
-    
+
 
     <form id="form1" runat="server">
         <div class="contentWrapper">

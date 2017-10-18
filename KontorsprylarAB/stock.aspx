@@ -17,5 +17,21 @@
             <asp:Literal ID="Stock" runat="server"></asp:Literal>
         </tbody>
     </table>
-
+    <table style="width: 50%;">
+        <thead>
+        <tr>
+            <th>StockID</th>
+            <th>Quantity</th>
+            <td>&nbsp;</td>
+        </tr>
+            </thead>
+        <tr>
+            <td>
+                <asp:TextBox ID="TextBoxStockID" runat="server"></asp:TextBox>&nbsp;</td>
+            <td>
+                <asp:TextBox ID="TextBoxQuantity" runat="server"></asp:TextBox>&nbsp;</td>
+            <td>
+                <asp:Button ID="ButtonUpdateStock" runat="server" Text="Update Stock" OnClick="ButtonUpdateStock_Click" />&nbsp;</td>
+        </tr>
+    </table>
 </asp:Content>

@@ -17,26 +17,49 @@ namespace KontorsprylarAB
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            Cart cart = new Cart();
+            List<Cart> cartList = (List<Cart>)Session["cartToSend"];
 
-            
 
-            string priceSum = cart.GetTotal();
 
-            if (cart != null)
+
+            string cartTableContent = "";
+
+            foreach (Cart c in cartList)
             {
-                string cartTableContent = "";
+                
 
-                foreach (var item in cart.productList)
+                if (c != null)
                 {
-                    cartTableContent += $"<tr><td>{item.ProductID}</td><td>{item.ProductName}</td><td>{item.ProductPrice}</td></tr>";
-                    //$ lägger på ToString() på variabler som skrivs mellan måsvingar. 
-                }
+                    
 
-                CheckoutSumUp.Text = cartTableContent;
-                PriceSum.Text = priceSum;
+                    foreach (Product p in c.productList)
+                    {
+                        cartTableContent += $"<tr><td>{p.ProductID}</td><td>{p.ProductName}</td><td>{p.ProductPrice}</td></tr>";
+                    }
+
+                    
+
+                }
+                
             }
-            //todo - what to do else..?
+
+            CheckoutSumUp.Text = cartTableContent;
+
+            //string priceSum = cart.GetTotal();
+
+            //if (cart != null)
+            //{
+            //    string cartTableContent = "";
+
+            //    foreach (var item in cart.productList)
+            //    {
+            //        cartTableContent += $"<tr><td>{item.ProductID}</td><td>{item.ProductName}</td><td>{item.ProductPrice}</td></tr>";
+            //        //$ lägger på ToString() på variabler som skrivs mellan måsvingar. 
+            //    }
+
+            //    CheckoutSumUp.Text = cartTableContent;
+            //    PriceSum.Text = priceSum;
         }
+        //todo - what to do else..?
     }
 }

@@ -26,6 +26,10 @@
                 <li><a href="login.aspx">Login</a></li>
                 <li><a href="createAccount.aspx">Create account</a></li>               
             </ul>
+            <ul class="nav navbar-right">
+                 <li><a href="stock.aspx">Stock</a></li>
+            </ul>          
+      
         </div>
     </nav>
 

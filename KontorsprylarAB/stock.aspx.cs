@@ -13,22 +13,37 @@ namespace KontorsprylarAB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Stock> stock = SQLClass.ReadStockContent();
-
-            if (stock != null)
+            if (IsPostBack)
             {
-                string stockTableContent = "";
 
-                foreach (var item in stock)
-                {
-                    stockTableContent += $"<tr><td>{item.StockID}</td><td>{item.ProductID}</td><td>{item.StockQuantity}</td></tr>";
-                    //$ lägger på ToString() på variabler som skrivs mellan måsvingar. 
-                }
-
-                Stock.Text = stockTableContent;
             }
-            //todo - what to do else..?
+            else
+            {
+                LoadStock();
+            }
         }
+
+            private void LoadStock()
+            {
+                List<Stock> stock = SQLClass.ReadStockContent();
+
+                if (stock != null)
+                {
+                    string stockTableContent = "";
+
+                    foreach (var item in stock)
+                    {
+                        stockTableContent += $"<tr><td>{item.StockID}</td><td>{item.ProductID}</td><td>{item.StockQuantity}</td></tr>";
+                        //$ lägger på ToString() på variabler som skrivs mellan måsvingar. 
+                    }
+
+                    Stock.Text = stockTableContent;
+                }
+                //todo - what to do else..?
+            }
+
+
+        
 
         protected void ButtonUpdateStock_Click(object sender, EventArgs e)
         {
@@ -45,6 +60,8 @@ namespace KontorsprylarAB
             int quantity = int.Parse(TextBoxQuantity.Text);
 
             SQLClass.UpdateStock(sid, cid + quantity);
+
+            LoadStock();
         }
     }
 }

@@ -21,13 +21,30 @@ namespace KontorsprylarAB
 
                 foreach (var item in stock)
                 {
-                    stockTableContent += $"<tr><td>{item.StockID}</td><td>{item.ProductID}</td><td>{item.StockQuantity}</td><td><input type =\"button\" value=\"Add 1000\"</td></tr>";
+                    stockTableContent += $"<tr><td>{item.StockID}</td><td>{item.ProductID}</td><td>{item.StockQuantity}</td></tr>";
                     //$ lägger på ToString() på variabler som skrivs mellan måsvingar. 
                 }
 
                 Stock.Text = stockTableContent;
             }
             //todo - what to do else..?
+        }
+
+        protected void ButtonUpdateStock_Click(object sender, EventArgs e)
+        {
+            int sid = int.Parse(TextBoxStockID.Text);
+
+            List<Stock> stock = SQLClass.ReadStockContent();
+            var querry = from s in stock
+                         where s.StockID == sid
+                         select s.StockQuantity;
+
+            int cid = querry.First();
+
+
+            int quantity = int.Parse(TextBoxQuantity.Text);
+
+            SQLClass.UpdateStock(sid, cid + quantity);
         }
     }
 }

@@ -4,9 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="Label1" runat="server" Text="LOGIN"></asp:Label>
     <br /><br />
-    <input id="username" placeholder="Username" type="text" style="text-align:center"/>
+    &nbsp;<asp:TextBox ID="textBoxUsername" runat="server"></asp:TextBox>
     <br /><br />
-    <input id="password" placeholder="Password "type="password" style="text-align:center" />
-    <br /><br />
-    <input id="ButtonLogin" type="button" value="Login" />
+    &nbsp;<asp:TextBox ID="textBoxPassword" runat="server"></asp:TextBox>
+    <br />
+    <asp:Button ID="buttonLogin" runat="server" Text="OK" OnClick="buttonLogin_Click" />
+    <br />
+    &nbsp;
 </asp:Content>

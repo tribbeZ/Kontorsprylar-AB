@@ -11,12 +11,7 @@ namespace TestUnit
     {
         static void Main(string[] args)
         {
-            List<Product> customer = SQLClass.ReadAllProducts();
-
-            foreach (var c in customer)
-            {
-                Console.WriteLine(c.ProductName);
-            }
+            SQLClass.AddCustomer("Mona", "Sahlin", "Monis", "coolgirl", "mona@arbetslos.se");
 
 
 

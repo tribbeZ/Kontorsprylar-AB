@@ -16,12 +16,12 @@ namespace SQLLibraryKAB
         /// Get total price 
         /// </summary>
         /// <returns></returns>
-        public string GetTotal()
+        public int GetTotal()
         {
-            string total = "";
+            int total = 0;
             foreach (Product p in productList)
             {
-                total += p.ProductPrice;
+                total += int.Parse(p.ProductPrice);
             }
 
             return total;

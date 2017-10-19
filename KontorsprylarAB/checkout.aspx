@@ -16,7 +16,7 @@
             <asp:Literal ID="PriceSum" runat="server"></asp:Literal>
            <tr>
                <td>
-                   <asp:Button ID="Button2" runat="server" Text="Continue Shopping" /></td>
+                   <asp:Button ID="ButtonContinue" runat="server" Text="Continue Shopping" /></td>
                <td>
                    <asp:Button ID="buttonCheckout" runat="server" Text="Checkout" OnClick="buttonCheckout_Click" />
                </td>

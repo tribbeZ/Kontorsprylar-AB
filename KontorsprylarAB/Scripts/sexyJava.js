@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    $('.navbar-right').hide();
+   $('.navbar-right').show();
 
 });
 

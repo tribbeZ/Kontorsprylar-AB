@@ -5,20 +5,20 @@
     <asp:Label ID="LabelCreateAccount" runat="server" Text="CREATE ACCOUNT"></asp:Label>
     <br /><br />
     <asp:TextBox ID="TextBoxFirstname"  placeholder="Firstname" runat="server" style="text-align:center"></asp:TextBox>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" EnableClientScript="False" ErrorMessage="Please provide your first name" ForeColor="Red" ControlToValidate="TextBoxFirstname"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxFirstname" EnableClientScript="False" ErrorMessage="RequiredFieldValidator" ForeColor="Red"></asp:RequiredFieldValidator>
     <br /><br />
     <asp:TextBox ID="TextBoxLastname"  placeholder="Lastname" runat="server" style="text-align:center"></asp:TextBox>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" EnableClientScript="False" ErrorMessage="Please provide your last name" ForeColor="Red" ControlToValidate="TextBoxLastname"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBoxLastname" EnableClientScript="False" ErrorMessage="RequiredFieldValidator" ForeColor="Red"></asp:RequiredFieldValidator>
     <br /><br />
     <asp:TextBox ID="TextBoxEmail"  placeholder="E-mail" runat="server" style="text-align:center"></asp:TextBox>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" EnableClientScript="False" ErrorMessage="Please provide your e-mail" ForeColor="Red" ControlToValidate="TextBoxEmail"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxEmail" EnableClientScript="False" ErrorMessage="RequiredFieldValidator" ForeColor="Red"></asp:RequiredFieldValidator>
     <br /><br />
     <asp:TextBox ID="TextBoxUsername"  placeholder="Username" runat="server" style="text-align:center"></asp:TextBox>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" EnableClientScript="False" ErrorMessage="Please provide a username" ForeColor="Red" ControlToValidate="TextBoxUsername"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBoxUsername" EnableClientScript="False" ErrorMessage="RequiredFieldValidator" ForeColor="Red"></asp:RequiredFieldValidator>
     <br /><br />
     <asp:TextBox ID="TextBoxPassword"  placeholder="Password" runat="server" style="text-align:center"></asp:TextBox>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" EnableClientScript="False" ErrorMessage="Please provide a password" ForeColor="Red" ControlToValidate="TextBoxPassword"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBoxPassword" EnableClientScript="False" ErrorMessage="RequiredFieldValidator" ForeColor="Red"></asp:RequiredFieldValidator>
     <br /><br />
-    <asp:Button ID="ButtonRegistration" runat="server" Text="Register" />
+    <asp:Button ID="ButtonRegistration" runat="server" Text="Register" OnClick="ButtonRegistration_Click" />
     
 </asp:Content>

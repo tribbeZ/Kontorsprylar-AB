@@ -5,22 +5,18 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width: 50%;">
-        <thead>
+       <thead>
             <tr>
-                <td>Product</td>
-                <td>Specification</td>
-                <td>Quantity</td>
+                <th>Product</th>
+                <th>Price</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Paper</td>
-                <td>A4</td>
-                <td>200</td>
-            </tr>
+            <asp:Literal ID="CheckoutSumUp" runat="server"></asp:Literal>
+            <asp:Literal ID="PriceSum" runat="server"></asp:Literal>
            <tr>
                <td>
-                   <asp:Button ID="Button2" runat="server" Text="Button" /></td>
+                   <asp:Button ID="Button2" runat="server" Text="Continue Shopping" /></td>
                <td>
                    <input id="Button1" type="button" value="Checkout!" /></td>
            </tr>

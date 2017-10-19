@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SQLLibraryKAB;
+using KontorsprylarAB;
 
 namespace KontorsprylarAB
 {
@@ -11,6 +13,31 @@ namespace KontorsprylarAB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        protected void ButtonRegistration_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                string firstName = TextBoxFirstname.Text;
+                string lastName = TextBoxLastname.Text;
+                string email = TextBoxEmail.Text;
+                string username = TextBoxUsername.Text;
+                string password = TextBoxEmail.Text;
+
+                try
+                {
+                    SQLClass.AddCustomer(firstName, lastName, email, username, password);
+
+                    Response.Redirect ("/accountConfirmation.aspx");
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
 
         }
     }

@@ -6,5 +6,5 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="labelUser" runat="server" Text="Label"></asp:Label>
+    <img src="Pictures/Ad.png" class="auto-style4" />
 </asp:Content>

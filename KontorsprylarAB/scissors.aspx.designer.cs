@@ -10,33 +10,33 @@
 namespace KontorsprylarAB {
     
     
-    public partial class WebForm3 {
+    public partial class scissors {
         
         /// <summary>
-        /// CheckoutSumUp control.
+        /// ScissorQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal CheckoutSumUp;
+        protected global::System.Web.UI.WebControls.RadioButtonList ScissorQuantity;
         
         /// <summary>
-        /// PriceSum control.
+        /// RequiredFieldValidatorQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal PriceSum;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorQuantity;
         
         /// <summary>
-        /// Button2 control.
+        /// ButtonAddToCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button ButtonAddToCart;
     }
 }

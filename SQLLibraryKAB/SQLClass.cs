@@ -11,7 +11,7 @@ namespace SQLLibraryKAB
 {
     public static class SQLClass
     {
-        static string connString = "Data Source=.;Initial Catalog=KAB;Integrated Security=True";
+        static string connString = "Data Source=.;Initial Catalog=KAB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         static SqlConnection sqlConnection = new SqlConnection(connString);
 
         /// <summary>
@@ -86,6 +86,55 @@ namespace SQLLibraryKAB
         /// </summary>
         /// <param name="name"></param>
         /// <param name="price"></param>
+        /// 
+
+
+        public static void AddOrder(string dateOfOrder, string numberOfProducts, string total, int cid)
+        {
+            try
+            {
+                sqlConnection.Open();
+
+                SqlCommand mySQLCommand = new SqlCommand("AddOrder", sqlConnection);
+                mySQLCommand.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter paramDate = new SqlParameter("@dateOfOrder", SqlDbType.VarChar);
+                paramDate.Value = dateOfOrder;
+
+                SqlParameter paramNumberOfProducts = new SqlParameter("@numberOfProducts", SqlDbType.VarChar);
+                paramNumberOfProducts.Value = numberOfProducts;
+
+                SqlParameter paramTotal = new SqlParameter("@total", SqlDbType.VarChar);
+                paramTotal.Value = total;
+
+                SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.VarChar);
+                paramCID.Value = cid;
+
+                SqlParameter paramOID = new SqlParameter("@oid", SqlDbType.Int);
+                paramOID.Direction = ParameterDirection.Output;
+
+                mySQLCommand.Parameters.Add(paramDate);
+                mySQLCommand.Parameters.Add(paramNumberOfProducts);
+                mySQLCommand.Parameters.Add(paramTotal);
+                mySQLCommand.Parameters.Add(paramCID);
+
+                mySQLCommand.ExecuteNonQuery();
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+
+
         public static void AddProduct(string name, string price)
         {
             try
@@ -252,6 +301,8 @@ namespace SQLLibraryKAB
         /// </summary>
         /// <param name="sid"></param>
         /// <param name="numberofproducts"></param>
+        /// 
+
         public static void UpdateStock(int sid, int numberofproducts)
         {
 
@@ -395,6 +446,41 @@ namespace SQLLibraryKAB
                 sqlConnection.Close();
             }
             return products;
+        }
+
+
+        public static List<Stock> ReadStockContent()
+        {
+            List<Stock> stockContent = new List<Stock>();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = "Select * from Stock";
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.Connection = sqlConnection;
+
+            try
+            {
+                sqlConnection.Open();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Stock stockItem = new Stock();
+                    stockItem.StockID = (int)reader["ID"];
+                    stockItem.ProductID = (int)reader["ProductID"];
+                    stockItem.StockQuantity = (int)reader["NumberOfProducts"];
+
+                    stockContent.Add(stockItem);
+                }
+            }
+            catch
+            {
+                stockContent = null;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return stockContent;
         }
 
         /// <summary>

@@ -4,13 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SQLLibraryKAB;
 
 namespace KontorsprylarAB
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
+        static List<Cart> cartList = new List<Cart>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            Session["cartToSend"] = cartList;
 
         }
 
@@ -18,10 +23,43 @@ namespace KontorsprylarAB
         {
             if (IsValid)
             {
-                string format = PaperFormat.SelectedValue;
-                string quantity = PaperQuantity.SelectedValue;
 
-                Response.Redirect($"/checkout.aspx?format={format}&quantity={quantity}");
+                string price = PaperQuantity.SelectedValue;
+
+                Cart cartToSend = new Cart();
+
+
+
+                switch (price)
+                {
+                    case "100":
+                        Product p = new Product();
+                        p.ProductName = "A3 100 - pack";
+                        p.ProductPrice = price;
+                        cartToSend.productList.Add(p);
+                        break;
+
+                    case "200":
+                        Product d = new Product();
+                        d.ProductName = "A4 100 - pack";
+                        d.ProductPrice = price;
+                        cartToSend.productList.Add(d);
+                        break;
+
+                    case "300":
+                        Product f = new Product();
+                        f.ProductName = "A5 100 - pack";
+                        f.ProductPrice = price;
+                        cartToSend.productList.Add(f);
+                        break;
+
+                    default:
+                        break;
+                }
+
+
+                cartList.Add(cartToSend);
+
             }
         }
     }

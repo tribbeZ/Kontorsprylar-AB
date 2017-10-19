@@ -27,7 +27,7 @@ namespace KontorsprylarAB
 
                 string name = userQuery.FirstOrDefault();
 
-                labelUser.Text = name;
+                
                
             }
         }        

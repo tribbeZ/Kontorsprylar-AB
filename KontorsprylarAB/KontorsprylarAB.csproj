@@ -48,6 +48,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -84,9 +87,13 @@
     <Content Include="login.aspx" />
     <Content Include="paper.aspx" />
     <Content Include="checkout.aspx" />
+    <Content Include="Pictures\Ad.png" />
     <Content Include="Pictures\paperpicture.png" />
+    <Content Include="Pictures\scissors.png" />
     <Content Include="Pictures\shoppingcart.png" />
+    <Content Include="Pictures\stone.png" />
     <Content Include="purchaseConfirmation.aspx" />
+    <Content Include="scissors.aspx" />
     <Content Include="Scripts\sexyJava.js" />
     <Content Include="stock.aspx" />
     <Content Include="createAccount.aspx" />
@@ -111,6 +118,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
+    <Content Include="stones.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +168,13 @@
     <Compile Include="purchaseConfirmation.aspx.designer.cs">
       <DependentUpon>purchaseConfirmation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="scissors.aspx.cs">
+      <DependentUpon>scissors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="scissors.aspx.designer.cs">
+      <DependentUpon>scissors.aspx</DependentUpon>
+    </Compile>
     <Compile Include="stock.aspx.cs">
       <DependentUpon>stock.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -180,6 +195,13 @@
     </Compile>
     <Compile Include="accountConfirmation.aspx.designer.cs">
       <DependentUpon>accountConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="stones.aspx.cs">
+      <DependentUpon>stones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stones.aspx.designer.cs">
+      <DependentUpon>stones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

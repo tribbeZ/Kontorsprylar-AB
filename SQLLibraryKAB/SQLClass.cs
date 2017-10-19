@@ -11,7 +11,7 @@ namespace SQLLibraryKAB
 {
     public static class SQLClass
     {
-        static string connString = "Data Source=.;Initial Catalog=KAB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        static string connString = "Data Source=.;Initial Catalog=HOLLAND;Integrated Security=True";
         static SqlConnection sqlConnection = new SqlConnection(connString);
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace SQLLibraryKAB
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="email"></param>
-        public static void AddCustomer(string firstname, string lastname, string email, string password, string username)
+        public static void AddCustomer(string firstname, string lastname, string username, string role, string password, string email)
         {
 
             try
@@ -43,14 +43,17 @@ namespace SQLLibraryKAB
                 SqlParameter paramLastname = new SqlParameter("@lastname", SqlDbType.VarChar);
                 paramLastname.Value = lastname;
 
-                SqlParameter paramEmail = new SqlParameter("@email", SqlDbType.VarChar);
-                paramEmail.Value = email;
-
                 SqlParameter paramUsername = new SqlParameter("@username", SqlDbType.VarChar);
                 paramUsername.Value = username;
 
+                SqlParameter paramRole = new SqlParameter("@role", SqlDbType.VarChar);
+                paramRole.Value = role;
+
                 SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.VarChar);
                 paramPassword.Value = password;
+
+                SqlParameter paramEmail = new SqlParameter("@email", SqlDbType.VarChar);
+                paramEmail.Value = email;
 
                 SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.Int);
                 paramCID.Direction = ParameterDirection.Output;
@@ -58,9 +61,10 @@ namespace SQLLibraryKAB
                 // lägg till parametrar
                 mySQLCommand.Parameters.Add(paramFirstname);
                 mySQLCommand.Parameters.Add(paramLastname);
-                mySQLCommand.Parameters.Add(paramEmail);
                 mySQLCommand.Parameters.Add(paramUsername);
+                mySQLCommand.Parameters.Add(paramRole);
                 mySQLCommand.Parameters.Add(paramPassword);
+                mySQLCommand.Parameters.Add(paramEmail);
                 mySQLCommand.Parameters.Add(paramCID);
 
 
@@ -109,7 +113,7 @@ namespace SQLLibraryKAB
                 SqlParameter paramTotal = new SqlParameter("@total", SqlDbType.VarChar);
                 paramTotal.Value = total;
 
-                SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.VarChar);
+                SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.Int);
                 paramCID.Value = cid;
 
                 SqlParameter paramOID = new SqlParameter("@oid", SqlDbType.Int);
@@ -123,7 +127,7 @@ namespace SQLLibraryKAB
 
                 mySQLCommand.ExecuteNonQuery();
 
-
+                
             }
             catch (Exception e)
             {

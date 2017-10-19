@@ -3,3 +3,5 @@
     $('.navbar-right').hide();
 
 });
+
+

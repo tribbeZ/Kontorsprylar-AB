@@ -22,10 +22,10 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">KAB</a>
             </div>
-            <ul class="nav navbar-nav">
+            <ul class ="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="login.aspx">Login</a></li>
-                <li><a href="createAccount.aspx">Create account</a></li>               
+                <li id="navCreate" runat="server"><a href="createAccount.aspx">Create account</a></li> 
+                <li id="navlogin" runat="server"><a href="login.aspx">Login</a></li>
             </ul>
             <ul class="nav navbar-right">
                  <li><a href="stock.aspx">Stock</a></li>
@@ -34,8 +34,7 @@
         </div>
     </nav>
 
-
-    
+       
     <div class="sidenav">
         <h3>Office supplies</h3>
 
@@ -44,13 +43,14 @@
         <a href="#">Rocks</a>    
     </div>
 
-    
-
-    <form id="form1" runat="server">
-        <div class="contentWrapper">
+  
+ 
+   <div class="contentWrapper">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
-    </form>
+   </div>
+
+
+ 
 </body>
 </html>

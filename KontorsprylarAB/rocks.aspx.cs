@@ -34,21 +34,21 @@ namespace KontorsprylarAB
                 {
                     case "100":
                         Product p = new Product();
-                        p.ProductName = "A3 100 - pack";
+                        p.ProductName = "Rocks 100 - pack";
                         p.ProductPrice = price;
                         cartToSend.productList.Add(p);
                         break;
 
                     case "200":
                         Product d = new Product();
-                        d.ProductName = "A4 100 - pack";
+                        d.ProductName = "Rocks 200 - pack";
                         d.ProductPrice = price;
                         cartToSend.productList.Add(d);
                         break;
 
                     case "300":
                         Product f = new Product();
-                        f.ProductName = "A5 100 - pack";
+                        f.ProductName = "Rocks 300 - pack";
                         f.ProductPrice = price;
                         cartToSend.productList.Add(f);
                         break;

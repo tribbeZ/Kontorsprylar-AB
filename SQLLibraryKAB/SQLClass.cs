@@ -81,15 +81,17 @@ namespace SQLLibraryKAB
 
         }
 
+       
+        
+
         /// <summary>
-        /// Add product
+        /// Add new order and link it to a customer
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="price"></param>
-        /// 
-
-
-        public static void AddOrder(string dateOfOrder, string numberOfProducts, string total, int cid)
+        /// <param name="dateOfOrder"></param>
+        /// <param name="numberOfProducts"></param>
+        /// <param name="total"></param>
+        /// <param name="cid"></param>
+        public static void AddOrder(string dateOfOrder, int numberOfProducts, string total, int cid)
         {
             try
             {
@@ -98,10 +100,10 @@ namespace SQLLibraryKAB
                 SqlCommand mySQLCommand = new SqlCommand("AddOrder", sqlConnection);
                 mySQLCommand.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter paramDate = new SqlParameter("@dateOfOrder", SqlDbType.VarChar);
+                SqlParameter paramDate = new SqlParameter("@dateoforder", SqlDbType.VarChar);
                 paramDate.Value = dateOfOrder;
 
-                SqlParameter paramNumberOfProducts = new SqlParameter("@numberOfProducts", SqlDbType.VarChar);
+                SqlParameter paramNumberOfProducts = new SqlParameter("@numberofproducts", SqlDbType.Int);
                 paramNumberOfProducts.Value = numberOfProducts;
 
                 SqlParameter paramTotal = new SqlParameter("@total", SqlDbType.VarChar);
@@ -117,6 +119,7 @@ namespace SQLLibraryKAB
                 mySQLCommand.Parameters.Add(paramNumberOfProducts);
                 mySQLCommand.Parameters.Add(paramTotal);
                 mySQLCommand.Parameters.Add(paramCID);
+                mySQLCommand.Parameters.Add(paramOID);
 
                 mySQLCommand.ExecuteNonQuery();
 
@@ -134,7 +137,11 @@ namespace SQLLibraryKAB
         }
 
 
-
+        /// <summary>
+        /// Add product
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="price"></param>
         public static void AddProduct(string name, string price)
         {
             try

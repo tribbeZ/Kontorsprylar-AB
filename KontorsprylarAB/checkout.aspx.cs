@@ -20,45 +20,52 @@ namespace KontorsprylarAB
             List<Cart> cartList = (List<Cart>)Session["cartToSend"];
 
 
-
-
             string cartTableContent = "";
 
             foreach (Cart c in cartList)
             {
-                
+
 
                 if (c != null)
                 {
-                    
+
 
                     foreach (Product p in c.productList)
                     {
                         cartTableContent += $"<tr><td>{p.ProductID}</td><td>{p.ProductName}</td><td>{p.ProductPrice}</td></tr>";
                     }
 
-                    
+
 
                 }
-                
+
             }
 
             CheckoutSumUp.Text = cartTableContent;
 
-            //string priceSum = cart.GetTotal();
+            // fånga upp värden och släng in en order i en click-funktion
+        }
 
-            //if (cart != null)
-            //{
-            //    string cartTableContent = "";
+        protected void buttonCheckout_Click(object sender, EventArgs e)
+        {
 
-            //    foreach (var item in cart.productList)
-            //    {
-            //        cartTableContent += $"<tr><td>{item.ProductID}</td><td>{item.ProductName}</td><td>{item.ProductPrice}</td></tr>";
-            //        //$ lägger på ToString() på variabler som skrivs mellan måsvingar. 
-            //    }
+            List<Cart> cartList = (List<Cart>)Session["cartToSend"];
 
-            //    CheckoutSumUp.Text = cartTableContent;
-            //    PriceSum.Text = priceSum;
+            if (cartList.Count() > 0)
+            {
+                string dt = DateTime.Now.ToString();
+                int nop = cartList.Count();
+                int total = 0;
+                int cid = 1;
+
+
+                foreach (Cart c in cartList)
+                {
+                    total += c.GetTotal();
+                }
+
+                SQLClass.AddOrder(dt, nop, total.ToString(), cid);
+            }
         }
         //todo - what to do else..?
     }

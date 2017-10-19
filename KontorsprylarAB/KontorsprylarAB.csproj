@@ -94,6 +94,7 @@
     <Content Include="Pictures\shoppingcart.png" />
     <Content Include="Pictures\stone.png" />
     <Content Include="purchaseConfirmation.aspx" />
+    <Content Include="rocks.aspx" />
     <Content Include="scissors.aspx" />
     <Content Include="Scripts\sexyJava.js" />
     <Content Include="stock.aspx" />
@@ -119,7 +120,6 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
-    <Content Include="stones.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +176,13 @@
     <Compile Include="purchaseConfirmation.aspx.designer.cs">
       <DependentUpon>purchaseConfirmation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="rocks.aspx.cs">
+      <DependentUpon>rocks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rocks.aspx.designer.cs">
+      <DependentUpon>rocks.aspx</DependentUpon>
+    </Compile>
     <Compile Include="scissors.aspx.cs">
       <DependentUpon>scissors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,13 +210,6 @@
     </Compile>
     <Compile Include="accountConfirmation.aspx.designer.cs">
       <DependentUpon>accountConfirmation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="stones.aspx.cs">
-      <DependentUpon>stones.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="stones.aspx.designer.cs">
-      <DependentUpon>stones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

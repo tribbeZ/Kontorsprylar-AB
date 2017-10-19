@@ -8,7 +8,7 @@ using SQLLibraryKAB;
 
 namespace KontorsprylarAB
 {
-    public partial class scissors : System.Web.UI.Page
+    public partial class rocks : System.Web.UI.Page
     {
         static List<Cart> cartList = new List<Cart>();
 
@@ -24,7 +24,7 @@ namespace KontorsprylarAB
             if (IsValid)
             {
 
-                string price = ScissorQuantity.SelectedValue;
+                string price = RocksQuantity.SelectedValue;
 
                 Cart cartToSend = new Cart();
 
@@ -64,3 +64,4 @@ namespace KontorsprylarAB
         }
     }
 }
+    

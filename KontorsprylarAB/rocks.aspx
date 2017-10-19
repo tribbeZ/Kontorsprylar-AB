@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="scissors.aspx.cs" Inherits="KontorsprylarAB.scissors" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="rocks.aspx.cs" Inherits="KontorsprylarAB.rocks" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style3 {
@@ -40,7 +40,7 @@
     <table style="width: 100%;">
         <tr>
             <td>
-                <img src="Pictures/stone.png" class="auto-style4" />&nbsp;</td>
+                <img src="Pictures/stone.png" class="auto-style4" style="width:150px; height:150px"/>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
@@ -57,17 +57,17 @@
         </tr>
         <tr>
             <td class="auto-style9">
-                <asp:RadioButtonList runat="server" ID="ScissorQuantity" RepeatDirection="Vertical"  RepeatLayout="Flow">
+                <asp:RadioButtonList runat="server" ID="RocksQuantity" RepeatDirection="Vertical"  RepeatLayout="Flow">
                 <asp:ListItem Text="100-pack" Value="100"></asp:ListItem>
-                <asp:ListItem Text="200-pack" Value="200"></asp:ListItem>
-                <asp:ListItem Text="300-pack" Value="300"></asp:ListItem>
+                <asp:ListItem Text="100-pack" Value="200"></asp:ListItem>
+                <asp:ListItem Text="100-pack" Value="300"></asp:ListItem>
                 </asp:RadioButtonList></td>
             
             <td class="auto-style10"></td>
         </tr>
         <tr>
             <td class="auto-style3">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorQuantity" runat="server" ControlToValidate="ScissorQuantity" ErrorMessage="Select a quantity!" ForeColor="Red" EnableClientScript="False"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorQuantity" runat="server" ControlToValidate="RocksQuantity" ErrorMessage="Select a quantity!" ForeColor="Red" EnableClientScript="False"></asp:RequiredFieldValidator>
             <td class="auto-style12"></td>
         </tr>
     </table>
@@ -78,7 +78,7 @@
         <tr>
             <td>
     
-    <asp:Button ID="ButtonAddToCart" runat="server" Text="Add to cart"/>
+    <asp:Button ID="ButtonAddToCart" runat="server" Text="Add to cart" OnClick="ButtonAddToCart_Click" />
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -86,3 +86,4 @@
     </table>
     
     </asp:Content>
+

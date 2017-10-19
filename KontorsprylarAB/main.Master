@@ -42,7 +42,7 @@
         <h3 class="navbar-header">Office supplies</h3>
 
         <a href="paper.aspx">Papers</a>
-        <a href="#">Scissors</a>
+        <a href="scissors.aspx">Scissors</a>
         <a href="#">Rocks</a>
     </div>
 

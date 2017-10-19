@@ -89,8 +89,10 @@
     <Content Include="checkout.aspx" />
     <Content Include="Pictures\Ad.png" />
     <Content Include="Pictures\paperpicture.png" />
+    <Content Include="Pictures\scissors.png" />
     <Content Include="Pictures\shoppingcart.png" />
     <Content Include="purchaseConfirmation.aspx" />
+    <Content Include="scissors.aspx" />
     <Content Include="Scripts\sexyJava.js" />
     <Content Include="stock.aspx" />
     <Content Include="createAccount.aspx" />
@@ -163,6 +165,13 @@
     </Compile>
     <Compile Include="purchaseConfirmation.aspx.designer.cs">
       <DependentUpon>purchaseConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="scissors.aspx.cs">
+      <DependentUpon>scissors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="scissors.aspx.designer.cs">
+      <DependentUpon>scissors.aspx</DependentUpon>
     </Compile>
     <Compile Include="stock.aspx.cs">
       <DependentUpon>stock.aspx</DependentUpon>

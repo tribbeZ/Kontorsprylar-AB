@@ -11,7 +11,7 @@ namespace SQLLibraryKAB
 {
     public static class SQLClass
     {
-        static string connString = "Data Source=.;Initial Catalog=HOLLAND;Integrated Security=True";
+        static string connString = "Data Source=.;Initial Catalog=KAB;Integrated Security=True";
         static SqlConnection sqlConnection = new SqlConnection(connString);
 
         /// <summary>
@@ -384,6 +384,45 @@ namespace SQLLibraryKAB
         /// Read all customer 
         /// </summary>
         /// <returns></returns>
+        /// 
+
+        public static List<Order> GetOrders(int cid)
+        {
+            List<Order> orders = new List<Order>();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = "GetOrders";
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Connection = sqlConnection;
+
+            try
+            {
+                sqlConnection.Open();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Order order = new Order();
+                    order.OrderID = (int)reader["ID"];
+                    order.CustomerID = (int)reader["CID"];
+                    order.OrderDate = (DateTime)reader["DateOfOrder"]; 
+                    order.OrderSum = (int)reader["Total"];
+                    order.OrderQuantity = (int)reader["NumberOfProducts"];
+
+                    orders.Add(order);
+                }
+            }
+            catch
+            {
+                orders = null;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return orders;
+        }
+
+
         public static List<Customer> ReadAllCustomers()
         {
             List<Customer> customers = new List<Customer>();

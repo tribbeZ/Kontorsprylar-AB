@@ -13,6 +13,15 @@ namespace KontorsprylarAB {
     public partial class ManageAccount {
         
         /// <summary>
+        /// Stock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Stock;
+        
+        /// <summary>
         /// PasswordTextBox control.
         /// </summary>
         /// <remarks>
@@ -31,12 +40,12 @@ namespace KontorsprylarAB {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Stock control.
+        /// Literal1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Stock;
+        protected global::System.Web.UI.WebControls.Literal Literal1;
     }
 }

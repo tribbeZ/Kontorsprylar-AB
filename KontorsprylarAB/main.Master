@@ -26,6 +26,7 @@
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="login.aspx">Login</a></li>
                 <li><a href="createAccount.aspx">Create account</a></li>
+                <li><a href="ManageAccount.aspx">Manage account</a></li>
             </ul>
 
             <ul class="nav navbar-right">

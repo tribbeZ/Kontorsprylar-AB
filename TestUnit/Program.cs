@@ -11,7 +11,7 @@ namespace TestUnit
     {
         static void Main(string[] args)
         {
-            SQLClass.AddOrder("Göran", "Persson", "TheGP", "coolguy", "GP@JKL.se");
+            //SQLClass.AddOrder("Göran", "Persson", "TheGP", "coolguy", "GP@JKL.se");
 
             
 

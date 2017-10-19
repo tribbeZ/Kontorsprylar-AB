@@ -22,7 +22,7 @@ namespace SQLLibraryKAB
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="email"></param>
-        public static void AddCustomer(string firstname, string lastname, string username, string password, string email)
+        public static void AddCustomer(string firstname, string lastname, string email, string password, string username)
         {
 
             try
@@ -43,14 +43,14 @@ namespace SQLLibraryKAB
                 SqlParameter paramLastname = new SqlParameter("@lastname", SqlDbType.VarChar);
                 paramLastname.Value = lastname;
 
+                SqlParameter paramEmail = new SqlParameter("@email", SqlDbType.VarChar);
+                paramEmail.Value = email;
+
                 SqlParameter paramUsername = new SqlParameter("@username", SqlDbType.VarChar);
                 paramUsername.Value = username;
 
                 SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.VarChar);
                 paramPassword.Value = password;
-
-                SqlParameter paramEmail = new SqlParameter("@email", SqlDbType.VarChar);
-                paramEmail.Value = email;
 
                 SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.Int);
                 paramCID.Direction = ParameterDirection.Output;
@@ -58,9 +58,9 @@ namespace SQLLibraryKAB
                 // lägg till parametrar
                 mySQLCommand.Parameters.Add(paramFirstname);
                 mySQLCommand.Parameters.Add(paramLastname);
+                mySQLCommand.Parameters.Add(paramEmail);
                 mySQLCommand.Parameters.Add(paramUsername);
                 mySQLCommand.Parameters.Add(paramPassword);
-                mySQLCommand.Parameters.Add(paramEmail);
                 mySQLCommand.Parameters.Add(paramCID);
 
 

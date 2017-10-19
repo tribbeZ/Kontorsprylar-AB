@@ -82,6 +82,12 @@ namespace KontorsprylarAB
                 Response.Redirect("/login.aspx");
             }
         }
+
+        protected void ButtonContinue_Click(object sender, EventArgs e)
+        {
+            
+           Response.Redirect("/index.aspx");
+        }
         //todo - what to do else..?
     }
 }

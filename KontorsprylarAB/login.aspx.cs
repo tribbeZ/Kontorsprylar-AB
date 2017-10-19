@@ -43,6 +43,11 @@ namespace KontorsprylarAB
                     where c.Username == username && c.Password == password
                     select c.Username;
 
+                var role =
+                    from c in userList
+                    where c.Username == username && c.Password == password
+                    select c.Role;
+
 
 
                 // kontrollera om användare finns
@@ -52,14 +57,21 @@ namespace KontorsprylarAB
                     // logga in , dvs byt sida och skicka med contactdID
                     string cid = loginQuery.First().ToString();
                     string uName = name.First().ToString();
+                    string roleS = role.First().ToString();
 
-                    // värden vi vill spara i sessions
-                    Session["Username"] = uName;
-                    Session["CID"] = cid;
+                    if (roleS == "Admin")
+                    {
+                        Response.Redirect("/stock.aspx");
+                    }
+                    else
+                    {
+                        // värden vi vill spara i sessions
+                        Session["Username"] = uName;
+                        Session["CID"] = cid;
 
-                    Response.Redirect("/index.aspx?action=login&cid=" + cid);
+                        Response.Redirect("/index.aspx?action=login&cid=" + cid);
+                    }
 
-                   
 
 
                 }

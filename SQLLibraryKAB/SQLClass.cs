@@ -86,6 +86,55 @@ namespace SQLLibraryKAB
         /// </summary>
         /// <param name="name"></param>
         /// <param name="price"></param>
+        /// 
+
+
+        public static void AddOrder(string dateOfOrder, string numberOfProducts, string total, int cid)
+        {
+            try
+            {
+                sqlConnection.Open();
+
+                SqlCommand mySQLCommand = new SqlCommand("AddOrder", sqlConnection);
+                mySQLCommand.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter paramDate = new SqlParameter("@dateOfOrder", SqlDbType.VarChar);
+                paramDate.Value = dateOfOrder;
+
+                SqlParameter paramNumberOfProducts = new SqlParameter("@numberOfProducts", SqlDbType.VarChar);
+                paramNumberOfProducts.Value = numberOfProducts;
+
+                SqlParameter paramTotal = new SqlParameter("@total", SqlDbType.VarChar);
+                paramTotal.Value = total;
+
+                SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.VarChar);
+                paramCID.Value = cid;
+
+                SqlParameter paramOID = new SqlParameter("@oid", SqlDbType.Int);
+                paramOID.Direction = ParameterDirection.Output;
+
+                mySQLCommand.Parameters.Add(paramDate);
+                mySQLCommand.Parameters.Add(paramNumberOfProducts);
+                mySQLCommand.Parameters.Add(paramTotal);
+                mySQLCommand.Parameters.Add(paramCID);
+
+                mySQLCommand.ExecuteNonQuery();
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+
+
         public static void AddProduct(string name, string price)
         {
             try

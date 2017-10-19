@@ -36,7 +36,9 @@
         </div>
     </nav>
 
-
+    <div class="userInfo">
+        <asp:Label ID="customerLabel" runat="server" Text="Guest"></asp:Label>
+    </div>
 
     <div class="sidenav">
         <h3 class="navbar-header">Office supplies</h3>

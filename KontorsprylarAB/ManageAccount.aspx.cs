@@ -20,9 +20,16 @@ namespace KontorsprylarAB
             else
             {
                 LoadUser();
+                LoadLastOrder();
             }
         }
 
+        private void LoadLastOrder()
+        {
+            string CustomerID = (string)Session["CID"];
+            SQLClass.GetOrders(Convert.ToInt32(CustomerID));
+
+        }
 
         private void LoadUser()
         {
@@ -49,7 +56,9 @@ namespace KontorsprylarAB
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            string CustomerID = (string)Session["CID"];
+            SQLClass.UpdateCustomer(Convert.ToInt32(CustomerID), PasswordTextBox.Text);
+            LoadUser();
         }
     }
 }

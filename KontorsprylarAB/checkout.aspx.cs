@@ -17,33 +17,40 @@ namespace KontorsprylarAB
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            List<Cart> cartList = (List<Cart>)Session["cartToSend"];
 
-
-            string cartTableContent = "";
-
-            foreach (Cart c in cartList)
+            if (Session["cartToSend"] != null)
             {
+                List<Cart> cartList = (List<Cart>)Session["cartToSend"];
+                string cartTableContent = "";
 
-
-                if (c != null)
+                foreach (Cart c in cartList)
                 {
 
 
-                    foreach (Product p in c.productList)
+                    if (c != null)
                     {
-                        cartTableContent += $"<tr><td>{p.ProductID}</td><td>{p.ProductName}</td><td>{p.ProductPrice}</td></tr>";
+
+
+                        foreach (Product p in c.productList)
+                        {
+                            cartTableContent += $"<tr><td>{p.ProductID}</td><td>{p.ProductName}</td><td>{p.ProductPrice}</td></tr>";
+                        }
+
+
+
                     }
-
-
 
                 }
 
+                CheckoutSumUp.Text = cartTableContent;
+
+                // fånga upp värden och släng in en order i en click-funktion
             }
 
-            CheckoutSumUp.Text = cartTableContent;
 
-            // fånga upp värden och släng in en order i en click-funktion
+
+
+
         }
 
         protected void buttonCheckout_Click(object sender, EventArgs e)

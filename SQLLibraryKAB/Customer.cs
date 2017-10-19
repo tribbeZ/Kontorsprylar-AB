@@ -14,14 +14,18 @@ namespace SQLLibraryKAB
         public string Email { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; }
 
 
 
-        public Customer(string firstname, string lastname, string email)
+        public Customer(string firstname, string lastname, string email, string username, string password)
         {
             this.Firstname = firstname;
             this.Lastname = lastname;
             this.Email = email;
+            this.Username = username;
+            this.Password = password;
+
         }
         public Customer()
         {

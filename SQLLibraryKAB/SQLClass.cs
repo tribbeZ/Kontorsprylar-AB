@@ -11,7 +11,7 @@ namespace SQLLibraryKAB
 {
     public static class SQLClass
     {
-        static string connString = "Data Source=.;Initial Catalog=HOLLAND;Integrated Security=True";
+        static string connString = "Data Source=.;Initial Catalog=KAB;Integrated Security=True";
         static SqlConnection sqlConnection = new SqlConnection(connString);
 
         /// <summary>

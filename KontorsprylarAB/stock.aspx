@@ -2,31 +2,31 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            height: 61px;
-            width: 194px;
-        }
-        .auto-style6 {
-            width: 194px;
-        }
-        .auto-style7 {
-            width: 66%;
-        }
-        .auto-style8 {
-            width: 409px;
-        }
-        .auto-style9 {
-            height: 61px;
-            width: 409px;
-        }
-        .auto-style10 {
-            width: 416px;
-        }
-        .auto-style11 {
-            height: 61px;
-            width: 416px;
-        }
-    </style>
+    .auto-style1 {
+        height: 61px;
+        width: 194px;
+    }
+    .auto-style6 {
+        width: 194px;
+    }
+    .auto-style7 {
+        width: 66%;
+    }
+    .auto-style8 {
+        width: 409px;
+    }
+    .auto-style9 {
+        height: 61px;
+        width: 409px;
+    }
+    .auto-style10 {
+        width: 416px;
+    }
+    .auto-style11 {
+        height: 61px;
+        width: 416px;
+    }
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

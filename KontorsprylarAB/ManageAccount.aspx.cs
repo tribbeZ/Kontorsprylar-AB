@@ -26,8 +26,29 @@ namespace KontorsprylarAB
 
         private void LoadLastOrder()
         {
-            string CustomerID = (string)Session["CID"];
-            SQLClass.GetOrders(Convert.ToInt32(CustomerID));
+            if (Session["CID"] != null)
+            {
+                string CustomerID = (string)Session["CID"];
+                int cid = int.Parse(CustomerID);
+                List<Order> orderList = SQLClass.GetOrders(cid);
+
+                if (orderList != null)
+                {
+                    string stockTableContent = "";
+
+                    foreach (var item in orderList)
+                    {
+                        if (true)
+                        {
+                            stockTableContent += $"<tr><td>{item.OrderDate}</td><td>{item.OrderSum}</td><td>{item.OrderQuantity}</td></tr>";
+
+                        }
+                    }
+
+                    OrderLiteral.Text = stockTableContent;
+
+                }
+            }
 
         }
 

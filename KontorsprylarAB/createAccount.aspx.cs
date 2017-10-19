@@ -28,7 +28,7 @@ namespace KontorsprylarAB
                 string role = "User";
                 try
                 {
-                    SQLClass.AddCustomer(firstName, lastName, email, role, username,  password);
+                    SQLClass.AddCustomer(firstName, lastName, username, role, password, email);
 
                     Session["Name"] = firstName;
 

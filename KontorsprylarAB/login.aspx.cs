@@ -57,20 +57,22 @@ namespace KontorsprylarAB
                     // logga in , dvs byt sida och skicka med contactdID
                     string cid = loginQuery.First().ToString();
                     string uName = name.First().ToString();
-                    string roleS = role.First().ToString();
+                    //string roleS = role.First().ToString();
 
-                    if (roleS == "Admin")
-                    {
-                        Response.Redirect("/stock.aspx");
-                    }
-                    else
-                    {
-                        // värden vi vill spara i sessions
-                        Session["Username"] = uName;
-                        Session["CID"] = cid;
 
-                        Response.Redirect("/index.aspx?action=login&cid=" + cid);
-                    }
+                    // värden vi vill spara i sessions
+                    Session["Username"] = uName;
+                    Session["CID"] = cid;
+
+                    Response.Redirect("/index.aspx?action=login&cid=" + cid);
+                    //if (roleS == "Admin")
+                    //{
+                    //    Response.Redirect("/stock.aspx");
+                    //}
+                    //else
+                    //{
+                       
+                    //}
 
 
 

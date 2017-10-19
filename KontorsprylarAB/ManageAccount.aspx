@@ -33,14 +33,14 @@
     </table>
     <table style="width: 80%;">
         <tr>
-            <th>OrderID</th>
-            <th>Customer ID</th>
+            
+           
             <th>OrderDate</th>
             <th>OrderSum</th>
             <th>OrderQuantity</th>
-            <th>ProductID</th>
+            
 
-            <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+            <asp:Literal ID="OrderLiteral" runat="server"></asp:Literal>
         </tr>
     </table>
 

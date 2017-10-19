@@ -388,40 +388,90 @@ namespace SQLLibraryKAB
         /// <returns></returns>
         /// 
 
+        //public static List<Order> GetOrders(int cid)
+        //{
+           
+        //    SqlCommand sqlCommand = new SqlCommand();
+        //    sqlCommand.CommandText = "GetOrders";
+        //    sqlCommand.CommandType = CommandType.StoredProcedure;
+        //    sqlCommand.Connection = sqlConnection;
+
+        //    try
+        //    {
+        //        sqlConnection.Open();
+        //        SqlDataReader reader = sqlCommand.ExecuteReader();
+
+        //        while (reader.Read())
+        //        {
+        //            Order order = new Order();
+        //            order.OrderID = (int)reader["ID"];
+        //            order.CustomerID = (int)reader["CID"];
+        //            order.OrderDate = (DateTime)reader["DateOfOrder"]; 
+        //            order.OrderSum = (int)reader["Total"];
+        //            order.OrderQuantity = (int)reader["NumberOfProducts"];
+
+        //            orders.Add(order);
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        orders = null;
+        //    }
+        //    finally
+        //    {
+        //        sqlConnection.Close();
+        //    }
+            
+        //}
+
         public static List<Order> GetOrders(int cid)
         {
             List<Order> orders = new List<Order>();
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = "GetOrders";
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Connection = sqlConnection;
 
             try
             {
+
+                
+
                 sqlConnection.Open();
+
+                SqlCommand sqlCommand = new SqlCommand("GetOrders", sqlConnection);
+
+                sqlCommand.CommandType = CommandType.StoredProcedure; //vår commandtype är en stored procedure
+
+                SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.Int);
+                paramCID.Value = cid;
+
+                sqlCommand.Parameters.Add(paramCID);
+
                 SqlDataReader reader = sqlCommand.ExecuteReader();
+
+
 
                 while (reader.Read())
                 {
                     Order order = new Order();
-                    order.OrderID = (int)reader["ID"];
-                    order.CustomerID = (int)reader["CID"];
-                    order.OrderDate = (DateTime)reader["DateOfOrder"]; 
-                    order.OrderSum = (int)reader["Total"];
-                    order.OrderQuantity = (int)reader["NumberOfProducts"];
+
+                    order.OrderDate = (string)reader["DateOfOrder"];
+                    order.OrderSum = Convert.ToInt32(reader["Total"]);
+                    order.OrderQuantity = Convert.ToInt32(reader["NumberOfProducts"]);
 
                     orders.Add(order);
                 }
+
             }
-            catch
+            catch (Exception ex)
             {
-                orders = null;
+
+                throw ex;
             }
             finally
             {
                 sqlConnection.Close();
             }
+
             return orders;
+
         }
 
 

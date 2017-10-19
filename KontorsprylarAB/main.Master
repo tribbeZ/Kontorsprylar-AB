@@ -29,8 +29,7 @@
             </ul>
 
             <ul class="nav navbar-right">
-                <li><a href="checkout.aspx">Cart</a></li>
-                <li><a href="stock.aspx">Stock</a></li>
+                <li><a href="checkout.aspx">Cart</a></li>               
             </ul>
 
         </div>

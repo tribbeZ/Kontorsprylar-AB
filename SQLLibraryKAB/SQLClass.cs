@@ -252,6 +252,8 @@ namespace SQLLibraryKAB
         /// </summary>
         /// <param name="sid"></param>
         /// <param name="numberofproducts"></param>
+        /// 
+
         public static void UpdateStock(int sid, int numberofproducts)
         {
 

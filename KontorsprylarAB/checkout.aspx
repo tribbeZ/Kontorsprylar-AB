@@ -18,7 +18,8 @@
                <td>
                    <asp:Button ID="Button2" runat="server" Text="Continue Shopping" /></td>
                <td>
-                   <input id="Button1" type="button" value="Checkout!" /></td>
+                   <asp:Button ID="buttonCheckout" runat="server" Text="Button" OnClick="buttonCheckout_Click" />
+               </td>
            </tr>
         </tbody>
 

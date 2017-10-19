@@ -8,7 +8,7 @@ using SQLLibraryKAB;
 
 namespace KontorsprylarAB
 {
-    public partial class scissors : System.Web.UI.Page
+    public partial class rocks : System.Web.UI.Page
     {
         static List<Cart> cartList = new List<Cart>();
 
@@ -24,7 +24,7 @@ namespace KontorsprylarAB
             if (IsValid)
             {
 
-                string price = ScissorQuantity.SelectedValue;
+                string price = RocksQuantity.SelectedValue;
 
                 Cart cartToSend = new Cart();
 
@@ -34,21 +34,21 @@ namespace KontorsprylarAB
                 {
                     case "100":
                         Product p = new Product();
-                        p.ProductName = "Scissors 100 - pack";
+                        p.ProductName = "Rocks 100 - pack";
                         p.ProductPrice = price;
                         cartToSend.productList.Add(p);
                         break;
 
                     case "200":
                         Product d = new Product();
-                        d.ProductName = "Scissors 200 - pack";
+                        d.ProductName = "Rocks 200 - pack";
                         d.ProductPrice = price;
                         cartToSend.productList.Add(d);
                         break;
 
                     case "300":
                         Product f = new Product();
-                        f.ProductName = "Scissors 300 - pack";
+                        f.ProductName = "Rocks 300 - pack";
                         f.ProductPrice = price;
                         cartToSend.productList.Add(f);
                         break;
@@ -64,3 +64,4 @@ namespace KontorsprylarAB
         }
     }
 }
+    

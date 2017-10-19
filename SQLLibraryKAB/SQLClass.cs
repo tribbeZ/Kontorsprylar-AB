@@ -186,6 +186,8 @@ namespace SQLLibraryKAB
             }
         }
 
+        
+
         /// <summary>
         /// Update customer password
         /// </summary>

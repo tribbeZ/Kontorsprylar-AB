@@ -22,7 +22,7 @@ namespace SQLLibraryKAB
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="email"></param>
-        public static void AddCustomer(string firstname, string lastname, string username, string password, string email)
+        public static void AddCustomer(string firstname, string lastname, string username, string role, string password, string email)
         {
 
             try
@@ -46,6 +46,9 @@ namespace SQLLibraryKAB
                 SqlParameter paramUsername = new SqlParameter("@username", SqlDbType.VarChar);
                 paramUsername.Value = username;
 
+                SqlParameter paramRole = new SqlParameter("@role", SqlDbType.VarChar);
+                paramRole.Value = role;
+
                 SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.VarChar);
                 paramPassword.Value = password;
 
@@ -59,6 +62,7 @@ namespace SQLLibraryKAB
                 mySQLCommand.Parameters.Add(paramFirstname);
                 mySQLCommand.Parameters.Add(paramLastname);
                 mySQLCommand.Parameters.Add(paramUsername);
+                mySQLCommand.Parameters.Add(paramRole);
                 mySQLCommand.Parameters.Add(paramPassword);
                 mySQLCommand.Parameters.Add(paramEmail);
                 mySQLCommand.Parameters.Add(paramCID);
@@ -109,7 +113,7 @@ namespace SQLLibraryKAB
                 SqlParameter paramTotal = new SqlParameter("@total", SqlDbType.VarChar);
                 paramTotal.Value = total;
 
-                SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.VarChar);
+                SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.Int);
                 paramCID.Value = cid;
 
                 SqlParameter paramOID = new SqlParameter("@oid", SqlDbType.Int);
@@ -123,7 +127,7 @@ namespace SQLLibraryKAB
 
                 mySQLCommand.ExecuteNonQuery();
 
-
+                
             }
             catch (Exception e)
             {

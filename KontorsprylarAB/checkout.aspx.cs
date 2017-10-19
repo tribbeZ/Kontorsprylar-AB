@@ -48,23 +48,31 @@ namespace KontorsprylarAB
 
         protected void buttonCheckout_Click(object sender, EventArgs e)
         {
+            string username = (string)Session["Username"];
 
-            List<Cart> cartList = (List<Cart>)Session["cartToSend"];
-
-            if (cartList.Count() > 0)
+            if (username != null)
             {
-                string dt = DateTime.Now.ToString();
-                int nop = cartList.Count();
-                int total = 0;
-                int cid = 1;
+                List<Cart> cartList = (List<Cart>)Session["cartToSend"];
 
-
-                foreach (Cart c in cartList)
+                if (cartList.Count() > 0)
                 {
-                    total += c.GetTotal();
-                }
+                    string dt = DateTime.Now.ToString();
+                    int nop = cartList.Count();
+                    int total = 0;
+                    string cid = (string)Session["CID"];
+                    int customerID = int.Parse(cid);
 
-                SQLClass.AddOrder(dt, nop, total.ToString(), cid);
+                    foreach (Cart c in cartList)
+                    {
+                        total += c.GetTotal();
+                    }
+
+                    SQLClass.AddOrder(dt, nop, total.ToString(), customerID);
+                }
+            }
+            else
+            {
+                Response.Redirect("/login.aspx");
             }
         }
         //todo - what to do else..?

@@ -24,11 +24,11 @@ namespace KontorsprylarAB
                 string lastName = TextBoxLastname.Text;
                 string email = TextBoxEmail.Text;
                 string username = TextBoxUsername.Text;
-                string password = TextBoxEmail.Text;
-
+                string password = TextBoxPassword.Text;
+                string role = "User";
                 try
                 {
-                    SQLClass.AddCustomer(firstName, lastName, email, username, password);
+                    SQLClass.AddCustomer(firstName, lastName, email, role, username,  password);
 
                     Response.Redirect ("/accountConfirmation.aspx");
 
